@@ -1,6 +1,96 @@
-@PC28168.U20241C804.Openpay.Platform_HostAddress = http://localhost:5290
+@Openpay.Platform_HostAddress = http://localhost:5128
 
-GET {{PC28168.U20241C804.Openpay.Platform_HostAddress}}/weatherforecast/
-Accept: application/json
+### 201 Created (status not specified -> Queued)
+POST {{Openpay.Platform_HostAddress}}/api/v1/disbursement-orders
+Content-Type: application/json
+Accept-Language: en-US
+
+{
+  "orderTrackingCode": "3f2b8c1e-6a4d-4f7e-9b21-5c8d7e6f1a02",
+  "affiliateStoreId": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+  "scheduledFrom": "2026-11-20",
+  "scheduledTo": "2026-11-30",
+  "transferCapAmount": 1500.50,
+  "transferCapCurrencyCode": "PEN",
+  "user": "operator01",
+  "remarks": "Weekly settlement"
+}
+
+### 409 Conflict (same orderTrackingCode again)
+POST {{Openpay.Platform_HostAddress}}/api/v1/disbursement-orders
+Content-Type: application/json
+Accept-Language: es-PE
+
+{
+  "orderTrackingCode": "3f2b8c1e-6a4d-4f7e-9b21-5c8d7e6f1a02",
+  "affiliateStoreId": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+  "scheduledFrom": "2026-11-20",
+  "scheduledTo": "2026-11-30",
+  "transferCapAmount": 1500.50,
+  "transferCapCurrencyCode": "PEN",
+  "status": "Processed",
+  "user": "operator01"
+}
+
+### 400 Bad Request (scheduledTo is not later than scheduledFrom)
+POST {{Openpay.Platform_HostAddress}}/api/v1/disbursement-orders
+Content-Type: application/json
+Accept-Language: es-PE
+
+{
+  "orderTrackingCode": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+  "affiliateStoreId": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+  "scheduledFrom": "2026-11-30",
+  "scheduledTo": "2026-11-30",
+  "transferCapAmount": 100,
+  "transferCapCurrencyCode": "PEN",
+  "user": "operator01"
+}
+
+### 400 Bad Request (negative transferCapAmount)
+POST {{Openpay.Platform_HostAddress}}/api/v1/disbursement-orders
+Content-Type: application/json
+Accept-Language: en
+
+{
+  "orderTrackingCode": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+  "affiliateStoreId": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+  "scheduledFrom": "2026-11-20",
+  "scheduledTo": "2026-11-30",
+  "transferCapAmount": -1,
+  "transferCapCurrencyCode": "PEN",
+  "user": "operator01"
+}
+
+### 400 Bad Request (missing user, remarks longer than 85 characters)
+POST {{Openpay.Platform_HostAddress}}/api/v1/disbursement-orders
+Content-Type: application/json
+Accept-Language: es
+
+{
+  "orderTrackingCode": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+  "affiliateStoreId": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+  "scheduledFrom": "2026-11-20",
+  "scheduledTo": "2026-11-30",
+  "transferCapAmount": 100,
+  "transferCapCurrencyCode": "PEN",
+  "remarks": "This remark is intentionally written to be longer than eighty five characters in total length."
+}
+
+### 400 Bad Request (invalid status)
+POST {{Openpay.Platform_HostAddress}}/api/v1/disbursement-orders
+Content-Type: application/json
+Accept-Language: en-US
+
+{
+  "orderTrackingCode": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+  "affiliateStoreId": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+  "scheduledFrom": "2026-11-20",
+  "scheduledTo": "2026-11-30",
+  "transferCapAmount": 100,
+  "transferCapCurrencyCode": "PEN",
+  "status": "Pending",
+  "user": "operator01"
+}
 
 ###
