@@ -1,3 +1,4 @@
+using PC28168.U20241C804.Openpay.Platform.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
 using PC28168.U20241C804.Openpay.Platform.Shared.Infrastructure.Persistence.EFC.Interceptors;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,5 +22,7 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
+
+        builder.UseSnakeCaseNamingConvention();
     }
 }
