@@ -1,0 +1,132 @@
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <data name="UnexpectedServerError" xml:space="preserve">
+        <value>Error inesperado del servidor</value>
+    </data>
+    <data name="UnexpectedErrorProcessingRequest" xml:space="preserve">
+        <value>Ocurrió un error inesperado al procesar su solicitud.</value>
+    </data>
+    <data name="InvalidModelStateTitle" xml:space="preserve">
+        <value>La solicitud contiene valores no válidos.</value>
+    </data>
+    <data name="DisbursementOrderDuplicated" xml:space="preserve">
+        <value>Ya existe una orden de desembolso con este código de seguimiento.</value>
+    </data>
+    <data name="UnexpectedErrorCreatingDisbursementOrder" xml:space="preserve">
+        <value>Ocurrió un error inesperado al crear la orden de desembolso.</value>
+    </data>
+    <data name="InvalidDisbursementOrderRequest" xml:space="preserve">
+        <value>La solicitud de orden de desembolso contiene valores no válidos.</value>
+    </data>
+    <data name="RequiredOrderTrackingCode" xml:space="preserve">
+        <value>El código de seguimiento de la orden es obligatorio.</value>
+    </data>
+    <data name="RequiredAffiliateStoreId" xml:space="preserve">
+        <value>El identificador del comercio afiliado es obligatorio.</value>
+    </data>
+    <data name="RequiredScheduledFrom" xml:space="preserve">
+        <value>La fecha de inicio programada es obligatoria.</value>
+    </data>
+    <data name="RequiredScheduledTo" xml:space="preserve">
+        <value>La fecha de fin programada es obligatoria.</value>
+    </data>
+    <data name="RequiredTransferCapAmount" xml:space="preserve">
+        <value>El monto tope de transferencia es obligatorio.</value>
+    </data>
+    <data name="RequiredTransferCapCurrencyCode" xml:space="preserve">
+        <value>El código de moneda del tope de transferencia es obligatorio.</value>
+    </data>
+    <data name="RequiredDisbursementOrderUser" xml:space="preserve">
+        <value>El usuario operador es obligatorio.</value>
+    </data>
+    <data name="InvalidExecutionSchedule" xml:space="preserve">
+        <value>La fecha de fin programada debe ser posterior a la fecha de inicio programada.</value>
+    </data>
+    <data name="InvalidTransferCapAmount" xml:space="preserve">
+        <value>El monto tope de transferencia debe ser mayor o igual que cero.</value>
+    </data>
+    <data name="InvalidTransferCapCurrencyCode" xml:space="preserve">
+        <value>El código de moneda del tope de transferencia no puede ser nulo, vacío ni espacios en blanco.</value>
+    </data>
+    <data name="InvalidDisbursementOrderStatus" xml:space="preserve">
+        <value>El estado debe ser Queued, Processed, Cancelled o Failed.</value>
+    </data>
+    <data name="InvalidDisbursementOrderUser" xml:space="preserve">
+        <value>El usuario operador es obligatorio y no puede exceder los 20 caracteres.</value>
+    </data>
+    <data name="InvalidDisbursementOrderRemarks" xml:space="preserve">
+        <value>Las observaciones no pueden exceder los 85 caracteres.</value>
+    </data>
+    <data name="CreateDisbursementOrderSummary" xml:space="preserve">
+        <value>Crear una orden de desembolso</value>
+    </data>
+    <data name="CreateDisbursementOrderDescription" xml:space="preserve">
+        <value>Crea una orden de desembolso de Openpay con un código de seguimiento único, un comercio afiliado, un periodo de ejecución, un tope de transferencia, un estado (Queued por defecto), el usuario operador y observaciones opcionales.</value>
+    </data>
+    <data name="CreateDisbursementOrderCreated" xml:space="preserve">
+        <value>Se creó la orden de desembolso.</value>
+    </data>
+    <data name="CreateDisbursementOrderBadRequest" xml:space="preserve">
+        <value>El cuerpo de la solicitud no es válido o incumple una regla de negocio.</value>
+    </data>
+    <data name="CreateDisbursementOrderConflict" xml:space="preserve">
+        <value>Ya existe una orden de desembolso con el mismo código de seguimiento.</value>
+    </data>
+    <data name="CreateDisbursementOrderServerError" xml:space="preserve">
+        <value>Ocurrió un error inesperado al crear la orden de desembolso.</value>
+    </data>
+    <data name="CreateDisbursementOrderSchema" xml:space="preserve">
+        <value>Datos necesarios para crear una orden de desembolso.</value>
+    </data>
+    <data name="DisbursementOrderSchema" xml:space="preserve">
+        <value>Orden de desembolso devuelta por la API.</value>
+    </data>
+    <data name="DisbursementOrderIdDescription" xml:space="preserve">
+        <value>Identificador de la orden de desembolso generado por el servidor.</value>
+    </data>
+    <data name="OrderTrackingCodeDescription" xml:space="preserve">
+        <value>Referencia de Openpay (GUID) que identifica de forma única a la orden de desembolso.</value>
+    </data>
+    <data name="AffiliateStoreIdDescription" xml:space="preserve">
+        <value>Identificador (GUID) del comercio afiliado.</value>
+    </data>
+    <data name="ScheduledFromDescription" xml:space="preserve">
+        <value>Fecha de inicio del periodo de ejecución (yyyy-MM-dd).</value>
+    </data>
+    <data name="ScheduledToDescription" xml:space="preserve">
+        <value>Fecha de fin del periodo de ejecución (yyyy-MM-dd). Debe ser posterior a scheduledFrom.</value>
+    </data>
+    <data name="TransferCapAmountDescription" xml:space="preserve">
+        <value>Monto máximo que se puede transferir. Cero o mayor.</value>
+    </data>
+    <data name="TransferCapCurrencyCodeDescription" xml:space="preserve">
+        <value>Código de moneda del tope de transferencia.</value>
+    </data>
+    <data name="DisbursementOrderStatusDescription" xml:space="preserve">
+        <value>Estado de la orden: Queued (por defecto), Processed, Cancelled o Failed.</value>
+    </data>
+    <data name="DisbursementOrderUserDescription" xml:space="preserve">
+        <value>Identificador del usuario operador que registra la orden. Hasta 20 caracteres.</value>
+    </data>
+    <data name="DisbursementOrderRemarksDescription" xml:space="preserve">
+        <value>Observaciones opcionales sobre la orden. Hasta 85 caracteres.</value>
+    </data>
+    <data name="DisbursementOrderUpdatedAtDescription" xml:space="preserve">
+        <value>Fecha y hora de la última actualización del registro.</value>
+    </data>
+</root>
