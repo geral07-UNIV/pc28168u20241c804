@@ -11,7 +11,7 @@ using PC28168.U20241C804.Openpay.Platform.Shared.Infrastructure.Persistence.EFC.
 namespace PC28168.U20241C804.Openpay.Platform.Shared.Infrastructure.Persistence.EFC.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20261118154116_InitialCreate")]
+    [Migration("20261118154322_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -78,11 +78,11 @@ namespace PC28168.U20241C804.Openpay.Platform.Shared.Infrastructure.Persistence.
                                 .HasColumnType("int")
                                 .HasColumnName("id");
 
-                            b1.Property<DateOnly>("ScheduledFrom")
+                            b1.Property<DateTime>("ScheduledFrom")
                                 .HasColumnType("date")
                                 .HasColumnName("scheduled_from");
 
-                            b1.Property<DateOnly>("ScheduledTo")
+                            b1.Property<DateTime>("ScheduledTo")
                                 .HasColumnType("date")
                                 .HasColumnName("scheduled_to");
 

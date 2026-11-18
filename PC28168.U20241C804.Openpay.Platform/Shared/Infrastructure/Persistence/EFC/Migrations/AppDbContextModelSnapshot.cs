@@ -75,11 +75,11 @@ namespace PC28168.U20241C804.Openpay.Platform.Shared.Infrastructure.Persistence.
                                 .HasColumnType("int")
                                 .HasColumnName("id");
 
-                            b1.Property<DateOnly>("ScheduledFrom")
+                            b1.Property<DateTime>("ScheduledFrom")
                                 .HasColumnType("date")
                                 .HasColumnName("scheduled_from");
 
-                            b1.Property<DateOnly>("ScheduledTo")
+                            b1.Property<DateTime>("ScheduledTo")
                                 .HasColumnType("date")
                                 .HasColumnName("scheduled_to");
 
