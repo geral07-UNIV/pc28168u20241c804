@@ -1,5 +1,6 @@
 using PC28168.U20241C804.Openpay.Platform.Shared.Domain.Repositories;
 using PC28168.U20241C804.Openpay.Platform.Shared.Infrastructure.Persistence.EFC.Configuration;
+using PC28168.U20241C804.Openpay.Platform.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using PC28168.U20241C804.Openpay.Platform.Shared.Infrastructure.Persistence.EFC.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,7 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+// Configure Lower Case URLs
+builder.Services.AddRouting(options => options.LowercaseUrls = true);
+
+// Configure Kebab Case Route Naming Convention
+builder.Services.AddControllers(options => options.Conventions.Add(new KebabCaseRouteNamingConvention()));
+
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
