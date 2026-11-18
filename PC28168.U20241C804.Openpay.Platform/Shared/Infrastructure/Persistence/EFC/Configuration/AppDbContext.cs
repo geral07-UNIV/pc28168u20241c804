@@ -42,8 +42,15 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
         builder.Entity<DisbursementOrder>().OwnsOne(d => d.ExecutionSchedule, schedule =>
         {
             schedule.WithOwner().HasForeignKey("Id");
-            schedule.Property(s => s.ScheduledFrom).HasColumnName("ScheduledFrom").IsRequired();
-            schedule.Property(s => s.ScheduledTo).HasColumnName("ScheduledTo").IsRequired();
+            // The MySQL provider reads DATE columns as DateTime, so DateOnly values are converted explicitly.
+            schedule.Property(s => s.ScheduledFrom).HasColumnName("ScheduledFrom")
+                .HasConversion(date => date.ToDateTime(TimeOnly.MinValue), value => DateOnly.FromDateTime(value))
+                .HasColumnType("date")
+                .IsRequired();
+            schedule.Property(s => s.ScheduledTo).HasColumnName("ScheduledTo")
+                .HasConversion(date => date.ToDateTime(TimeOnly.MinValue), value => DateOnly.FromDateTime(value))
+                .HasColumnType("date")
+                .IsRequired();
         });
         builder.Entity<DisbursementOrder>().Navigation(d => d.ExecutionSchedule).IsRequired();
         builder.Entity<DisbursementOrder>().OwnsOne(d => d.TransferCap, transferCap =>
